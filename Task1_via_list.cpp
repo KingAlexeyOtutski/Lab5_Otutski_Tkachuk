@@ -53,19 +53,26 @@ bool checking(char* str)
 		return 0;
 }
 
-void Lesha()
+void test (char test_string[], bool answer)
 {
-	char input_string[100];
-	freopen("input.txt", "r", stdin);
-	gets_s(input_string);
-	fclose(stdin);
-	if (checking(input_string))
-		cout << "--Brackets in your input string" << endl << endl << input_string << endl << endl << "were set CORRECTLY." << endl << endl;
-	else
-		cout << "--Brackets in your input string" << endl << endl << input_string << endl << endl << "were set INCORRECTLY." << endl << endl;
+    if (checking(test_string) == answer)
+    {
+        cout <<"CORRECT\n";
+    }
+    else
+    {
+        cout << "INCORRECT\n";
+    }
 }
 
-void main()
+int main()
 {
-	Lesha();
+    test ("()", true);
+    test ("[([{}])]", true);
+    test ("", true);
+    test ("{", false);
+    test ("[[][][[[[[][][]][[[]]]]]][[[]][[]][]", false);
+    test ("{([})", false);
+	//Lesha();
+	return 0;
 }
