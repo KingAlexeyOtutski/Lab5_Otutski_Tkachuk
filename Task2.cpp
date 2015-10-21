@@ -119,7 +119,7 @@ int counting(char str[])
 	return stack_head->value;
 }
 
-void Lesha()
+/*void Lesha()
 {
 	char input_string[100];
 	freopen("input.txt", "r", stdin);
@@ -127,9 +127,27 @@ void Lesha()
 	fclose(stdin);
 	int a = 10, b = 20;
 	cout << "After calculating your input string " << endl << endl << input_string << endl << endl << "becomes " << endl << endl << counting(input_string) << endl << endl;
+}*/
+
+void test (char test_string[], int answer)
+{
+    if (counting(test_string) == answer)
+    {
+        cout <<"CORRECT\n";
+    }
+    else
+    {
+        cout << "INCORRECT\n";
+    }
 }
 
-void main()
+int main()
 {
-	Lesha();
+    test ("8", 8);
+    test ("max(2, 3)", 3);
+    test ("max(1, max(2, max(3, max(4, max(5, 6)))))", 6);
+    test ("max(1, min(1, max(1, min(1, max(1, 1)))))", 1);
+    test ("min(max(1, 9), max(5, 6))", 6);
+	//Lesha();
+	return 0;
 }
